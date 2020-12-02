@@ -52,27 +52,6 @@ const WithExperience = (props) => {
         console.log("jobs",currentUser.jobs);
         
         registerJob(currentUser.jobs);
-        // props.history.push('/informacion-completada-con-exito')
-        // const datafield = {
-        //     job_level: parseInt(values.cargo),
-        //     name_inst: values.empresa,
-        //     // FALTA GUARDAR DIRECCION DE EMPRESA
-        //     department: parseInt(values.rubro),
-        //     from_year: moment(values.from_year).format('DD/MM/YYYY'),
-        //     to_year: moment(values.to_year).format('DD/MM/YYYY'),
-        //     hour_rate: parseInt(values.hour_rate),
-        //     monthly_income: parseInt(values.monthly_income),
-        //     job_sati: parseInt(values.job_sati),
-        //     over_time: parseInt(values.over_time),
-        //     attrition: parseInt(values.attrition),
-        //     job_invol: values.nivel_par,
-        //     work_bal_life: values.nivel_sat,
-
-        //     job_level: 1,// NUEVO
-        //     distan_home: 1, // EN DURO
-        //     buss_travel: 1 // EN DURO
-        // };
-        // registerJob(datafield);
     } 
 
     const addJob = () => {
