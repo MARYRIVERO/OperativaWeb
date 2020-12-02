@@ -4,20 +4,23 @@ import { useForm } from "react-hook-form";
 import NavBar from "../../Components/MenuUser/index";
 import { IoIosEye, IoIosEyeOff } from 'react-icons/io';
 import './index.css';
+import { MensajeExito} from './../../utils/toast'
 
 const NewPassword= (props) => { 
     const { handleSubmit, register, errors, formState} = useForm();
     const { isSubmitted } = formState;
     
-    const onSubmit = (values) => { 
-        console.log(values);
+    const onSubmit = () => { 
+        MensajeExito("Has creado una nueva contraseña");
         props.history.push('/inicio-sesion')
-        }          
+    }          
+
     const [see, setSee] = React.useState(false)
     const seePass = () =>
     {
         setSee(!see)        
     }
+    
     return (
         <Fragment>
             <NavBar/>
@@ -26,7 +29,7 @@ const NewPassword= (props) => {
                     <h1 className='h1-custom-restore'>CREA UNA NUEVA CONTRASEÑA</h1>
                 <form onSubmit= { handleSubmit(onSubmit) } className='form-container'>
                     <label className="label-form">
-                        Contraseña
+                        Nueva Contraseña
                         <div className="icon-see-container">
                             {see 
                                 ? 

@@ -4,11 +4,15 @@ import * as AiIcons from 'react-icons/ai';
 import { Link, withRouter } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import LogoMedio from '../../assets/logos/small.svg'
+import { useDispatch } from 'react-redux';
 import './index.css';
+import { logout } from '../../redux-store/user/actions/logout';
 
 
 function Navbar(props) {
   const [sidebar, setSidebar] = useState(false);
+
+  const dispatch = useDispatch();
 
   const showSidebar = () => setSidebar(!sidebar);
 
@@ -22,6 +26,7 @@ function Navbar(props) {
     const cerrarSesion= () =>{
          localStorage.removeItem('token')
          localStorage.removeItem('email')
+         dispatch(logout());
          props.history.push('/')    
      }
   return (
@@ -59,7 +64,7 @@ function Navbar(props) {
                  isAuth() ? (
                    
                     <li className ="nav-text">
-                      <a onClick= {() => cerrarSesion()}><FaIcons.FaUserCircle/>
+                      <a href="/#" onClick= {() => cerrarSesion()}><FaIcons.FaUserCircle/>
                       <span className="title-color">Cerrar sesión</span>  
                       </a>
                     </li>

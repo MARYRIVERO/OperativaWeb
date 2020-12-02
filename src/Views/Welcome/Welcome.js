@@ -1,14 +1,26 @@
-import React from "react";
+import React, {useEffect} from "react";
 import NavBar from "../../Components/MenuUser/index"
 import {withRouter} from 'react-router-dom'
 import Ilustracion from "../../assets/images/ilustracion2.svg"
+import { useDispatch } from 'react-redux';
 import './index.css';
 
-const Welcome= (props) => {  
-    const onSubmit = (values) => { 
-        console.log(values);
+import { setSignInUser, setSignUpUser } from '../../redux-store/user';
+
+const Welcome= (props) => { 
+
+    const dispatch = useDispatch();
+
+    const onSubmit = () => {  
         props.history.push('/info');
     }
+
+    useEffect(() => {
+        dispatch(setSignInUser(false));
+        dispatch(setSignUpUser(false));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     return (
         <>
             <NavBar/>
